@@ -68,7 +68,7 @@ public enum CombatSpecial {
     ARMADYL_GODSWORD(new int[]{11802}, 50, 1.375, 2, new ArmadylGodswordCombatMethod(), WeaponInterface.GODSWORD),
     SARADOMIN_GODSWORD(new int[]{11806}, 50, 1.1, 1.5, new SaradominGodswordCombatMethod(), WeaponInterface.GODSWORD),
     BANDOS_GODSWORD(new int[]{11804}, 100, 1.21, 1.5, new BandosGodswordCombatMethod(), WeaponInterface.GODSWORD),
-    ZAMORAK_GODSWORD(new int[]{11808}, 50, 1.1, 1.5, new ZamorakGodswordCombatMethod(), WeaponInterface.GODSWORD),
+    ZAMORAK_GODSWORD(new int[]{11808}, 50, 1.1, 2, new ZamorakGodswordCombatMethod(), WeaponInterface.GODSWORD),
 
     ABYSSAL_BLUDGEON(new int[]{13263}, 50, 1.20, 1.0, new AbyssalBludgeonCombatMethod(),
             WeaponInterface.ABYSSAL_BLUDGEON),
