@@ -84,7 +84,7 @@ public class KingBlackDragonMethod extends CombatMethod {
             if (currentAttackType == CombatType.MAGIC) {
                 switch (currentBreath) {
                     case ICE:
-                        CombatFactory.freeze(hit.getTarget().getAsPlayer(), 5);
+                        CombatFactory.freeze(hit.getTarget().getAsPlayer(), 10);
                         break;
                     case POISON:
                         CombatFactory.poisonEntity(hit.getTarget().getAsPlayer(), PoisonType.SUPER);

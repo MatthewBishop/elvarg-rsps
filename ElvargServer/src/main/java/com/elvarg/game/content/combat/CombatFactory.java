@@ -937,7 +937,7 @@ public class CombatFactory {
 	 * @param character
 	 * @param seconds
 	 */
-	public static void freeze(Mobile character, int seconds) {
+	public static void freeze(Mobile character, int ticks) {
 		if (character.getTimers().has(TimerKey.FREEZE) || character.getTimers().has(TimerKey.FREEZE_IMMUNITY)) {
 			return;
 		}
@@ -947,8 +947,6 @@ public class CombatFactory {
 			return;
 		}
 
-		// Make us frozen for the amount of seconds
-		int ticks = Misc.getTicks(seconds);
 		character.getTimers().register(TimerKey.FREEZE, ticks);
 		character.getTimers().register(TimerKey.FREEZE_IMMUNITY, ticks + Misc.getTicks(3));
 		character.getMovementQueue().reset();
@@ -956,7 +954,7 @@ public class CombatFactory {
 		if (character.isPlayer()) {
 
 			// Send message and effect timer to client
-			character.getAsPlayer().getPacketSender().sendMessage("You have been frozen!").sendEffectTimer(seconds,
+			character.getAsPlayer().getPacketSender().sendMessage("You have been frozen!").sendEffectTimer(Misc.getSeconds(ticks),
 					EffectTimer.FREEZE);
 		}
 	}

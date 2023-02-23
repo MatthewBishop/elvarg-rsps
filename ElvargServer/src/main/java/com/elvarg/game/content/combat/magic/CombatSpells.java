@@ -515,7 +515,7 @@ public enum CombatSpells {
 
         @Override
         public void spellEffect(Mobile cast, Mobile castOn) {
-			CombatFactory.freeze(castOn, 5);
+			CombatFactory.freeze(castOn, 8);
         }
 
         @Override
@@ -918,7 +918,7 @@ public enum CombatSpells {
 
         @Override
         public void spellEffect(Mobile cast, Mobile castOn) {
-			CombatFactory.freeze(castOn, 10);
+			CombatFactory.freeze(castOn, 16);
         }
 
         @Override
@@ -1623,7 +1623,7 @@ public enum CombatSpells {
 
         @Override
         public void spellEffect(Mobile cast, Mobile castOn) {
-        	CombatFactory.freeze(castOn, 15);
+        	CombatFactory.freeze(castOn, 24);
         }
 
         @Override
@@ -1980,7 +1980,7 @@ public enum CombatSpells {
     ICE_RUSH(new CombatAncientSpell() {
         @Override
         public void spellEffectOnHitCalc(Mobile cast, Mobile castOn, int damage) {
-        	CombatFactory.freeze(castOn, 5);
+        	CombatFactory.freeze(castOn, 8);
         }
 
         @Override
@@ -2214,7 +2214,7 @@ public enum CombatSpells {
     ICE_BURST(new CombatAncientSpell() {
         @Override
         public void spellEffectOnHitCalc(Mobile cast, Mobile castOn, int damage) {
-        	CombatFactory.freeze(castOn, 10);
+        	CombatFactory.freeze(castOn, 16);
         }
 
         @Override
@@ -2448,7 +2448,7 @@ public enum CombatSpells {
     ICE_BLITZ(new CombatAncientSpell() {
         @Override
         public void spellEffectOnHitCalc(Mobile cast, Mobile castOn, int damage) {
-        	CombatFactory.freeze(castOn, 15);
+        	CombatFactory.freeze(castOn, 24);
         }
 
         @Override
@@ -2682,7 +2682,7 @@ public enum CombatSpells {
     ICE_BARRAGE(new CombatAncientSpell() {
         @Override
         public void spellEffectOnHitCalc(Mobile cast, Mobile castOn, int damage) {
-        	CombatFactory.freeze(castOn, 20);
+        	CombatFactory.freeze(castOn, 32);
         }
 
         @Override
