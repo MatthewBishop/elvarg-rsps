@@ -151,6 +151,13 @@ public class CombatFactory {
 	 */
 	public static HitDamage getHitDamage(Mobile entity, Mobile victim, CombatType type) {
 
+		//flag on whether this hit should ignore protection prayers.
+		//this occurs 25% of the time with verac set effect and is also an effect of the dragon hasta special attack.
+		boolean ignorePrayer = CombatFactory.fullVeracs(entity) && Misc.getRandom(4) == 1;
+		
+		//calculate the multiplier that will be used when calculating protection prayers.
+		double damageMultiplier = ignorePrayer ? 1.0 : (entity.isNpc() ? CombatConstants.PRAYER_DAMAGE_REDUCTION_AGAINST_NPCS : CombatConstants.PRAYER_DAMAGE_REDUCTION_AGAINST_PLAYERS);
+		
 		int damage = 0;
 
 		if (type == CombatType.MELEE) {
@@ -158,14 +165,14 @@ public class CombatFactory {
 
 			// Do melee effects with the calculated damage..
 			if (victim.getPrayerActive()[PrayerHandler.PROTECT_FROM_MELEE]) {
-				damage *= 0.6;
+				damage *= damageMultiplier;
 			}
 
 		} else if (type == CombatType.RANGED) {
 			damage = Misc.inclusive(0, DamageFormulas.calculateMaxRangedHit(entity));
 
 			if (victim.getPrayerActive()[PrayerHandler.PROTECT_FROM_MISSILES]) {
-				damage *= 0.6;
+				damage *= damageMultiplier;
 			}
 
 			// Do ranged effects with the calculated damage..
@@ -193,7 +200,7 @@ public class CombatFactory {
 		} else if (type == CombatType.MAGIC) {
 			damage = Misc.inclusive(0, DamageFormulas.getMagicMaxhit(entity));
 			if (victim.getPrayerActive()[PrayerHandler.PROTECT_FROM_MAGIC]) {
-				damage *= 0.6;
+				damage *= damageMultiplier;
 			}
 
 			// Do magic effects with the calculated damage..
@@ -202,26 +209,6 @@ public class CombatFactory {
 		// We've got our damage. We can now create a HitDamage
 		// instance.
 		HitDamage hitDamage = new HitDamage(damage, damage == 0 ? HitMask.BLUE : HitMask.RED);
-
-		/**
-		 * Prayers decreasing damage.
-		 */
-		boolean ignorePrayer = CombatFactory.fullVeracs(entity) && Misc.getRandom(4) == 1;
-		
-		// Decrease damage if victim is a player and has prayers active..
-		if (!ignorePrayer) {
-
-			// Check if victim is is using correct protection prayer
-			if (PrayerHandler.isActivated(victim, PrayerHandler.getProtectingPrayer(type))) {
-
-				// Apply the damage reduction mod
-				if (entity.isNpc()) {
-					hitDamage.multiplyDamage(CombatConstants.PRAYER_DAMAGE_REDUCTION_AGAINST_NPCS);
-				} else {
-					hitDamage.multiplyDamage(CombatConstants.PRAYER_DAMAGE_REDUCTION_AGAINST_PLAYERS);
-				}
-			}
-		}
 
 		// Check elysian spirit shield damage reduction
 		if (victim.isPlayer() && Misc.getRandom(100) <= 70) {
