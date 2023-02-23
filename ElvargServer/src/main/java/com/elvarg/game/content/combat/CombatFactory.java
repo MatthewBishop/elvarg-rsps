@@ -935,7 +935,7 @@ public class CombatFactory {
 	 * Freezes a character.
 	 *
 	 * @param character
-	 * @param seconds
+	 * @param ticks The number of ticks to freeze.
 	 */
 	public static void freeze(Mobile character, int ticks) {
 		if (character.getTimers().has(TimerKey.FREEZE) || character.getTimers().has(TimerKey.FREEZE_IMMUNITY)) {
