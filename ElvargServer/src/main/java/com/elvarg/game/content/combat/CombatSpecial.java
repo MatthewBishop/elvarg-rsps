@@ -28,6 +28,7 @@ import com.elvarg.game.content.combat.method.impl.specials.GraniteMaulCombatMeth
 import com.elvarg.game.content.combat.method.impl.specials.MagicShortbowCombatMethod;
 import com.elvarg.game.content.combat.method.impl.specials.SaradominGodswordCombatMethod;
 import com.elvarg.game.content.combat.method.impl.specials.SaradominSwordCombatMethod;
+import com.elvarg.game.content.combat.method.impl.specials.ShoveCombatMethod;
 import com.elvarg.game.content.combat.method.impl.specials.ZamorakGodswordCombatMethod;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
@@ -73,6 +74,10 @@ public enum CombatSpecial {
     ABYSSAL_BLUDGEON(new int[]{13263}, 50, 1.20, 1.0, new AbyssalBludgeonCombatMethod(),
             WeaponInterface.ABYSSAL_BLUDGEON),
 
+    //Dragon Spear, Zamorakian Hasta, and Zamorakian Spear
+    SHOVE_SPECIAL(new int[]{1249,5730,5716,3176,1263,11824,11889}, 25, 1.0, 1.0, new ShoveCombatMethod(),
+            WeaponInterface.SPEAR),
+ 
     // Multiple hits
     DRAGON_HALBERD(new int[]{3204}, 30, 1.1, 1.35, new DragonHalberdCombatMethod(),
             WeaponInterface.HALBERD),
