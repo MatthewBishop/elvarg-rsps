@@ -927,6 +927,11 @@ public enum CombatSpells {
         }
 
         @Override
+        public int maximumHit() {
+            return 3;
+        }
+        
+        @Override
         public Optional<Graphic> startGraphic() {
             return Optional.of(new Graphic(177, GraphicHeight.HIGH));
         }
@@ -1631,6 +1636,11 @@ public enum CombatSpells {
             return Optional.of(new Graphic(179, GraphicHeight.HIGH));
         }
 
+        @Override
+        public int maximumHit() {
+            return 5;
+        }
+        
         @Override
         public Optional<Graphic> startGraphic() {
             return Optional.of(new Graphic(177, GraphicHeight.HIGH));
