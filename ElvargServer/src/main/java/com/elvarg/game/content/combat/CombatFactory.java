@@ -948,7 +948,7 @@ public class CombatFactory {
 		}
 
 		character.getTimers().register(TimerKey.FREEZE, ticks);
-		character.getTimers().register(TimerKey.FREEZE_IMMUNITY, ticks + Misc.getTicks(3));
+		character.getTimers().register(TimerKey.FREEZE_IMMUNITY, ticks + 5);
 		character.getMovementQueue().reset();
 
 		if (character.isPlayer()) {
