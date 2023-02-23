@@ -206,9 +206,10 @@ public class CombatFactory {
 		/**
 		 * Prayers decreasing damage.
 		 */
-
+		boolean ignorePrayer = CombatFactory.fullVeracs(entity) && Misc.getRandom(4) == 1;
+		
 		// Decrease damage if victim is a player and has prayers active..
-		if ((!CombatFactory.fullVeracs(entity) || Misc.getRandom(4) == 1)) {
+		if (!ignorePrayer) {
 
 			// Check if victim is is using correct protection prayer
 			if (PrayerHandler.isActivated(victim, PrayerHandler.getProtectingPrayer(type))) {
