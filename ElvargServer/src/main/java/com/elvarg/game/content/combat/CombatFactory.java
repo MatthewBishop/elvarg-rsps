@@ -150,13 +150,9 @@ public class CombatFactory {
 	 * @return the HitDamage.
 	 */
 	public static HitDamage getHitDamage(Mobile entity, Mobile victim, CombatType type) {
-
-		//flag on whether this hit should ignore protection prayers.
-		//this occurs 25% of the time with verac set effect and is also an effect of the dragon hasta special attack.
-		boolean ignorePrayer = CombatFactory.fullVeracs(entity) && Misc.getRandom(4) == 1;
 		
 		//calculate the multiplier that will be used when calculating protection prayers.
-		double damageMultiplier = ignorePrayer ? 1.0 : (entity.isNpc() ? CombatConstants.PRAYER_DAMAGE_REDUCTION_AGAINST_NPCS : CombatConstants.PRAYER_DAMAGE_REDUCTION_AGAINST_PLAYERS);
+		double damageMultiplier = entity.isNpc() ? CombatConstants.PRAYER_DAMAGE_REDUCTION_AGAINST_NPCS : CombatConstants.PRAYER_DAMAGE_REDUCTION_AGAINST_PLAYERS;
 		
 		int damage = 0;
 

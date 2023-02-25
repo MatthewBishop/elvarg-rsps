@@ -138,8 +138,7 @@ public class ShoveCombatMethod extends CombatMethod {
 		character.getTimers().register(TimerKey.COMBAT_ATTACK, character.getBaseAttackSpeed());
 		character.setSpecialActivated(false);
 		if (character.isPlayer()) {
-			Player p = character.getAsPlayer();
-			CombatSpecial.updateBar(p);
+			CombatSpecial.updateBar(character.getAsPlayer());
 		}
 	}
 
