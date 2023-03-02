@@ -10,7 +10,7 @@ public class ProjectileBuilder {
     private int startHeight = 43;
     private int endHeight = 31;
     private int delay = 51;
-    private int angle = 23;
+    private int angle = 16;
     private int duration = -5;
     private int distanceOffset = 64;
     private int multiplier = 10;
