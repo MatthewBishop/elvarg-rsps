@@ -14,7 +14,6 @@ import com.elvarg.game.model.Graphic;
 import com.elvarg.game.model.GraphicHeight;
 import com.elvarg.game.model.Item;
 import com.elvarg.game.model.MagicSpellbook;
-import com.elvarg.game.model.Projectile;
 import com.elvarg.game.model.Skill;
 import com.elvarg.game.task.impl.CombatPoisonEffect.PoisonType;
 
@@ -26,8 +25,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 91));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(91).createProjectile();
         }
 
         @Override
@@ -77,8 +76,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 103));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(103).createProjectile();
         }
 
         @Override
@@ -151,8 +150,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 94));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(94).createProjectile();
         }
 
         @Override
@@ -202,8 +201,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 97));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(97).createProjectile();
         }
 
         @Override
@@ -253,8 +252,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 106));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(106).createProjectile();
         }
 
         @Override
@@ -332,8 +331,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 100));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(100).createProjectile();
         }
 
         @Override
@@ -383,8 +382,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 118));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(118).createProjectile();
         }
 
         @Override
@@ -434,8 +433,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 109));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(109).createProjectile();
         }
 
         @Override
@@ -509,8 +508,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 178));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(178).createProjectile();
         }
 
         @Override
@@ -555,8 +554,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 121));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(121).createProjectile();
         }
 
         @Override
@@ -606,8 +605,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 124));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(124).createProjectile();
         }
 
         @Override
@@ -657,8 +656,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 127));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(127).createProjectile();
         }
 
         @Override
@@ -708,8 +707,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 146));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(146).createProjectile();
         }
 
         @Override
@@ -759,8 +758,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 133));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(133).createProjectile();
         }
 
         @Override
@@ -810,8 +809,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 136));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(136).createProjectile();
         }
 
         @Override
@@ -861,8 +860,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 88));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(88).createProjectile();
         }
 
         @Override
@@ -912,8 +911,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 178));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(178).createProjectile();
         }
 
         @Override
@@ -963,8 +962,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 328));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(328).createProjectile();
         }
 
         @Override
@@ -1014,8 +1013,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 139));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(139).createProjectile();
         }
 
         @Override
@@ -1065,8 +1064,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 130));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(130).createProjectile();
         }
 
         @Override
@@ -1116,8 +1115,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.empty();
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().createProjectile();
         }
 
         @Override
@@ -1132,7 +1131,7 @@ public enum CombatSpells {
 
         @Override
         public Optional<Graphic> startGraphic() {
-            return Optional.empty();
+        	return Optional.empty();
         }
 
         @Override
@@ -1167,8 +1166,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.empty();
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().createProjectile();
         }
 
         @Override
@@ -1218,8 +1217,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.empty();
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().createProjectile();
         }
 
         @Override
@@ -1269,8 +1268,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 159));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(159).createProjectile();
         }
 
         @Override
@@ -1320,8 +1319,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 162));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(162).createProjectile();
         }
 
         @Override
@@ -1371,8 +1370,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 168));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(168).createProjectile();
         }
 
         @Override
@@ -1445,8 +1444,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 165));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(165).createProjectile();
         }
 
         @Override
@@ -1496,8 +1495,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 171));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(171).createProjectile();
         }
 
         @Override
@@ -1571,8 +1570,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 156));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(156).createProjectile();
         }
 
         @Override
@@ -1622,8 +1621,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 178));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(178).createProjectile();
         }
 
         @Override
@@ -1673,8 +1672,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 174));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(174).createProjectile();
         }
 
         @Override
@@ -1747,8 +1746,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 344));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(344).createProjectile();
         }
 
         @Override
@@ -1826,8 +1825,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 384));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(384).createProjectile();
         }
 
         @Override
@@ -1892,8 +1891,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 378));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(378).createProjectile();
         }
 
         @Override
@@ -1948,8 +1947,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 372));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(372).createProjectile();
         }
 
         @Override
@@ -2004,8 +2003,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 360));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(360).createProjectile();
         }
 
         @Override
@@ -2060,8 +2059,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.empty();
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().createProjectile();
         }
 
         @Override
@@ -2126,8 +2125,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.empty();
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().createProjectile();
         }
 
         @Override
@@ -2182,8 +2181,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.empty();
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().createProjectile();
         }
 
         @Override
@@ -2238,8 +2237,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.empty();
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().createProjectile();
         }
 
         @Override
@@ -2294,8 +2293,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 386));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(386).createProjectile();
         }
 
         @Override
@@ -2360,8 +2359,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 380));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(380).createProjectile();
         }
 
         @Override
@@ -2416,8 +2415,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 374));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(374).createProjectile();
         }
 
         @Override
@@ -2472,8 +2471,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.empty();
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().createProjectile();
         }
 
         @Override
@@ -2528,8 +2527,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.empty();
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().createProjectile();
         }
 
         @Override
@@ -2594,8 +2593,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.empty();
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().createProjectile();
         }
 
         @Override
@@ -2650,8 +2649,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.empty();
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().createProjectile();
         }
 
         @Override
@@ -2706,8 +2705,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.empty();
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().createProjectile();
         }
 
         @Override
@@ -2757,8 +2756,8 @@ public enum CombatSpells {
          }
 
          @Override
-         public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-             return Optional.of(new Projectile(cast, castOn, 1252));
+         public NewProjectile projectile() {
+             return new ProjectileBuilder().setGraphicsId(1252).createProjectile();
          }
 
          @Override
@@ -2808,8 +2807,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
-            return Optional.of(new Projectile(cast, castOn, 1040));
+        public NewProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(1040).createProjectile();
         }
 
         @Override

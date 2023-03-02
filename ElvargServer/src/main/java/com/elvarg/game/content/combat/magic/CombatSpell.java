@@ -47,8 +47,8 @@ public abstract class CombatSpell extends Spell {
         }
 
         // Finally send the projectile after two ticks.
-        castProjectile(cast, castOn).ifPresent(g -> {
-            //g.sendProjectile();
+        if(projectile().getGraphicsId() != -1) {
+        	Projectile g = new Projectile(cast, castOn, projectile().getGraphicsId());
             TaskManager.submit(new Task(2, cast, false) {
                 @Override
                 public void execute() {
@@ -56,7 +56,7 @@ public abstract class CombatSpell extends Spell {
                     this.stop();
                 }
             });
-        });
+        }
     }
 
     public int getAttackSpeed() {
@@ -95,12 +95,9 @@ public abstract class CombatSpell extends Spell {
     /**
      * The projectile played when this spell is cast.
      *
-     * @param cast   the entity casting the spell.
-     * @param castOn the entity targeted by the spell.
      * @return the projectile played when this spell is cast.
      */
-    public abstract Optional<Projectile> castProjectile(Mobile cast,
-                                                        Mobile castOn);
+    public abstract NewProjectile projectile();
 
     /**
      * The ending graphic played when the spell hits the victim.
