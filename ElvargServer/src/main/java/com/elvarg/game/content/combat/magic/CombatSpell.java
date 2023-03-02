@@ -46,7 +46,7 @@ public abstract class CombatSpell extends Spell {
             startGraphic().ifPresent(cast::performGraphic);
         }
 
-        // Finally send the projectile after two ticks.
+        // Finally send the projectile
         if(projectile().getProjectileId() != -1) {
         	Projectile.sendProjectile(cast, castOn, projectile());
         }
