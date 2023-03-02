@@ -48,8 +48,7 @@ public class Projectile {
 	public static void sendProjectile(Mobile source, Mobile victim, Projectile p) {
 		final Location start = source.getLocation();
 		final Location end = victim.getLocation();
-		final int speed = p.speed == Integer.MIN_VALUE ? p.getSpeed(start, end) : p.speed;
-		Projectile.sendProjectile(start, end, victim, p, source.getPrivateArea(), speed);
+		Projectile.sendProjectile(start, end, victim, p, source.getPrivateArea());
 	}
 
 	/**
@@ -60,7 +59,7 @@ public class Projectile {
 	 * @param p the projectile being sent
 	 */
 	public static void sendProjectile(Location start, Location end, Projectile p) {
-		Projectile.sendProjectile(start, end, null, p, null, p.speed);
+		Projectile.sendProjectile(start, end, null, p, null);
 	}
 
 	/**
@@ -71,14 +70,14 @@ public class Projectile {
 	 * @param p the projectile being sent
 	 */
 	public static void sendProjectile(Mobile source, Location end, Projectile p) {
-		Projectile.sendProjectile(source.getLocation(), end, null, p, source.getPrivateArea(), p.speed);
+		Projectile.sendProjectile(source.getLocation(), end, null, p, source.getPrivateArea());
 	}
 
 	/**
 	 * Internal method to send a projectile to all nearby players.
 	 */
 	private static void sendProjectile(Location start, Location end, Mobile lockon, Projectile p,
-			PrivateArea privateArea, int speed) {
+			PrivateArea privateArea) {
 		for (Player player : World.getPlayers()) {
 			if (player == null) {
 				continue;
@@ -89,7 +88,7 @@ public class Projectile {
 			if (!start.isViewableFrom(player.getLocation())) {
 				continue;
 			}
-			player.getPacketSender().sendProjectile(start, end, 0, speed, p.projectileId, p.startHeight, p.endHeight, lockon, p.delay, p.angle, p.distanceOffset);
+			player.getPacketSender().sendProjectile(start, end, 0, p.getSpeed(start, end), p.projectileId, p.startHeight, p.endHeight, lockon, p.delay, p.angle, p.distanceOffset);
 		}
 	}
 	
@@ -120,7 +119,9 @@ public class Projectile {
 	}
 	
 	private int getSpeed(Location source, Location dest) {
-		return delay + duration + (Math.max(Math.abs(source.getX() - dest.getX()), Math.abs(source.getY() - dest.getY())) * span);
+		if(speed != Integer.MIN_VALUE)
+			return speed;
+		return delay + duration + (source.getChebyshevDistance(dest) * span);
 	}
 	
 	/**

@@ -7,8 +7,6 @@ import com.elvarg.game.entity.impl.npc.NPC;
 import com.elvarg.game.model.Animation;
 import com.elvarg.game.model.Graphic;
 import com.elvarg.game.model.Projectile;
-import com.elvarg.game.task.Task;
-import com.elvarg.game.task.TaskManager;
 
 import java.util.Optional;
 
