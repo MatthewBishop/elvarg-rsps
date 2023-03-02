@@ -7,6 +7,7 @@ import com.elvarg.game.content.combat.CombatType;
 import com.elvarg.game.content.combat.hit.HitDamage;
 import com.elvarg.game.content.combat.hit.HitMask;
 import com.elvarg.game.content.combat.hit.PendingHit;
+import com.elvarg.game.content.combat.magic.NewProjectile;
 import com.elvarg.game.content.combat.method.CombatMethod;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
@@ -14,6 +15,7 @@ import com.elvarg.game.model.Animation;
 import com.elvarg.game.model.Graphic;
 import com.elvarg.game.model.GraphicHeight;
 import com.elvarg.game.model.Location;
+import com.elvarg.game.model.OldProjectile;
 import com.elvarg.game.model.Projectile;
 import com.elvarg.game.task.Task;
 import com.elvarg.game.task.TaskManager;
@@ -35,6 +37,8 @@ public class CrazyArchaeologistCombatMethod extends CombatMethod {
 	private static final Graphic MAKE_IT_RAIN_START_GFX = new Graphic(157, GraphicHeight.MIDDLE);
 	private static final Animation MELEE_ATTACK_ANIM = new Animation(423);
 	private static final Animation RANGED_ATTACK_ANIM = new Animation(3353);
+    private static final OldProjectile SPECIAL_PROJECTILE = new OldProjectile(1260, 40, 80, 31, 43);
+	private static final OldProjectile RANGED_PROJECILE = new OldProjectile(1259, 40, 65, 31, 43);
 
 	@Override
 	public PendingHit[] hits(Mobile character, Mobile target) {
@@ -67,7 +71,7 @@ public class CrazyArchaeologistCombatMethod extends CombatMethod {
 
 		if (attack == Attack.DEFAULT_RANGED_ATTACK) {
 			character.performAnimation(RANGED_ATTACK_ANIM);
-			new Projectile(character, target, 1259, 40, 65, 31, 43).sendProjectile();
+			Projectile.createProjectile(character, target, RANGED_PROJECILE);
 			TaskManager.submit(new Task(3, target, false) {
 				@Override
 				public void execute() {
@@ -86,7 +90,7 @@ public class CrazyArchaeologistCombatMethod extends CombatMethod {
 						(targetPos.getY() - 1) + Misc.getRandom(3)));
 			}
 			for (Location pos : attackPositions) {
-				new Projectile(character, pos, 1260).sendProjectile();
+				Projectile.createProjectile(character, pos, SPECIAL_PROJECTILE);
 			}
 			TaskManager.submit(new Task(4) {
 				@Override

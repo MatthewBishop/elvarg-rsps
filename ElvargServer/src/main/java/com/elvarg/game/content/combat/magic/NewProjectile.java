@@ -1,5 +1,7 @@
 package com.elvarg.game.content.combat.magic;
 
+import com.elvarg.game.model.Location;
+
 /**
  * 
  * @author Advocatus | https://www.rune-server.ee/members/119929-advocatus/
@@ -59,5 +61,9 @@ public class NewProjectile {
 
 	public int getMultiplier() {
 		return multiplier;
+	}
+
+	public int getProjectileDuration(Location source, Location dest) {
+		return delay + duration + (Math.max(Math.abs(source.getX() - dest.getX()), Math.abs(source.getY() - dest.getY())) * multiplier);
 	}
 }

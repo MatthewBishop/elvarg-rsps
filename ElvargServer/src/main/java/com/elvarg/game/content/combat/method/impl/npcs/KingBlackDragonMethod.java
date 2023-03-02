@@ -9,6 +9,7 @@ import com.elvarg.game.content.combat.method.CombatMethod;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
+import com.elvarg.game.model.OldProjectile;
 import com.elvarg.game.model.Projectile;
 import com.elvarg.game.task.impl.CombatPoisonEffect.PoisonType;
 import com.elvarg.util.Misc;
@@ -22,22 +23,7 @@ public class KingBlackDragonMethod extends CombatMethod {
     public void start(Mobile character, Mobile target) {
         if (currentAttackType == CombatType.MAGIC) {
             character.performAnimation(new Animation(84));
-            switch (currentBreath) {
-                case DRAGON:
-                    new Projectile(character, target, 393, 40, 55, 31, 43).sendProjectile();
-                    break;
-                case ICE:
-                    new Projectile(character, target, 396, 40, 55, 31, 43).sendProjectile();
-                    break;
-                case POISON:
-                    new Projectile(character, target, 394, 40, 55, 31, 43).sendProjectile();
-                    break;
-                case SHOCK:
-                    new Projectile(character, target, 395, 40, 55, 31, 43).sendProjectile();
-                    break;
-                default:
-                    break;
-            }
+            Projectile.createProjectile(character, target, currentBreath.projectile);
         } else if (currentAttackType == CombatType.MELEE) {
             character.performAnimation(new Animation(91));
         }
@@ -123,8 +109,16 @@ public class KingBlackDragonMethod extends CombatMethod {
             }
         }
     }
-
+    
     private enum Breath {
-        ICE, POISON, SHOCK, DRAGON;
+        ICE(new OldProjectile(396, 40, 55, 31, 43)), POISON(new OldProjectile(394, 40, 55, 31, 43)), SHOCK(new OldProjectile(395, 40, 55, 31, 43)), DRAGON(new OldProjectile(393, 40, 55, 31, 43));
+    	
+    	private OldProjectile projectile;
+
+		private Breath(OldProjectile projectile) {
+			this.projectile = projectile;
+		}
+    	
+    	
     }
 }

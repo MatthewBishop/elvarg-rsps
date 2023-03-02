@@ -13,6 +13,7 @@ import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
 import com.elvarg.game.model.Graphic;
 import com.elvarg.game.model.Location;
+import com.elvarg.game.model.OldProjectile;
 import com.elvarg.game.model.Projectile;
 import com.elvarg.game.task.Task;
 import com.elvarg.game.task.TaskManager;
@@ -23,6 +24,7 @@ public class VetionCombatMethod extends CombatMethod {
 
 	private CombatType attack = CombatType.MELEE;
 	private static final Graphic MAGIC_END_GFX = new Graphic(281);
+    private static final OldProjectile MAGIC_PROJECTILE = new OldProjectile(280, 40, 80, 31, 43);
 
 	@Override
 	public boolean canAttack(Mobile character, Mobile target) {
@@ -58,7 +60,7 @@ public class VetionCombatMethod extends CombatMethod {
 						(targetPos.getY() - 1) + Misc.getRandom(3)));
 			}
 			for (Location pos : attackPositions) {
-				new Projectile(character, pos, 280).sendProjectile();
+				Projectile.createProjectile(character, pos, MAGIC_PROJECTILE);
 			}
 			TaskManager.submit(new Task(4) {
 				@Override

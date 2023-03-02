@@ -12,6 +12,7 @@ import com.elvarg.game.content.combat.ranged.RangedData.RangedWeaponType;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
+import com.elvarg.game.model.OldProjectile;
 import com.elvarg.game.model.Projectile;
 
 public class RangedCombatMethod extends CombatMethod {
@@ -102,7 +103,7 @@ public class RangedCombatMethod extends CombatMethod {
         }
 
         // Fire projectile
-        new Projectile(character, target, projectileId, delay, speed, heightStart, heightEnd).sendProjectile();
+        Projectile.createProjectile(character, target, new OldProjectile(projectileId, delay, speed, heightStart, heightEnd));
 
         // Send sound
         SoundManager.sendSound(character.getAsPlayer(), Sound.SHOOT_ARROW);
@@ -110,7 +111,7 @@ public class RangedCombatMethod extends CombatMethod {
         // Dark bow sends two arrows, so send another projectile and delete another
         // arrow.
         if (rangedWeapon == RangedWeapon.DARK_BOW) {
-            new Projectile(character, target, ammo.getProjectileId(), delay - 7, speed + 4, heightStart + 5, heightEnd).sendProjectile();
+            Projectile.createProjectile(character, target, new OldProjectile(ammo.getProjectileId(), delay - 7, speed + 4, heightStart + 5, heightEnd));
 
             // Decrement 2 ammo if d bow
             if (character.isPlayer()) {

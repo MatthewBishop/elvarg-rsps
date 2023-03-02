@@ -7,6 +7,7 @@ import com.elvarg.game.entity.impl.npc.NPC;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
 import com.elvarg.game.model.Item;
+import com.elvarg.game.model.OldProjectile;
 import com.elvarg.game.model.Projectile;
 import com.elvarg.game.model.Skill;
 import com.elvarg.game.task.Task;
@@ -436,7 +437,7 @@ public class Fishing extends DefaultSkillable {
          * The projectile which will be fired towards
          * the player from the fishing spot.
          */
-        private static final int PROJECTILE_ID = 94;
+        private static final OldProjectile PROJECTILE = new OldProjectile(94, 40, 70, 31, 33);
 
         /**
          * The player being attacked by a fish.
@@ -485,7 +486,7 @@ public class Fishing extends DefaultSkillable {
             switch (tick) {
                 case 0:
                     //Fire projectile at player.
-                    new Projectile(fishSpot, player, PROJECTILE_ID, 40, 70, 31, 33).sendProjectile();
+                    Projectile.createProjectile(fishSpot, player, PROJECTILE);
                     break;
                 case 2:
                     //Defence animation..

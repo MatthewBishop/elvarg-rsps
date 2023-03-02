@@ -48,14 +48,7 @@ public abstract class CombatSpell extends Spell {
 
         // Finally send the projectile after two ticks.
         if(projectile().getGraphicsId() != -1) {
-        	Projectile g = new Projectile(cast, castOn, projectile().getGraphicsId());
-            TaskManager.submit(new Task(2, cast, false) {
-                @Override
-                public void execute() {
-                    g.sendProjectile();
-                    this.stop();
-                }
-            });
+        	Projectile.createProjectile(cast, castOn, projectile());
         }
     }
 

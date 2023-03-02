@@ -8,12 +8,14 @@ import com.elvarg.game.content.combat.ranged.RangedData.RangedWeapon;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
+import com.elvarg.game.model.OldProjectile;
 import com.elvarg.game.model.Priority;
 import com.elvarg.game.model.Projectile;
 
 public class ArmadylCrossbowCombatMethod extends RangedCombatMethod {
 
     private static final Animation ANIMATION = new Animation(4230, Priority.HIGH);
+	private static final OldProjectile PROJECTILE = new OldProjectile(301, 50, 70, 44, 35);
 
     @Override
     public PendingHit[] hits(Mobile character, Mobile target) {
@@ -37,7 +39,7 @@ public class ArmadylCrossbowCombatMethod extends RangedCombatMethod {
         final Player player = character.getAsPlayer();        
         CombatSpecial.drain(player, CombatSpecial.ARMADYL_CROSSBOW.getDrainAmount());
         player.performAnimation(ANIMATION);
-        new Projectile(character, target, 301, 50, 70, 44, 35).sendProjectile();
+        Projectile.createProjectile(character, target, PROJECTILE);
         CombatFactory.decrementAmmo(player, target.getLocation(), 1);
     }
 }
