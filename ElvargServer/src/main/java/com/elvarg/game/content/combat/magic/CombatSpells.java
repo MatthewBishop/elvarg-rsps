@@ -1747,7 +1747,7 @@ public enum CombatSpells {
 
         @Override
         public NewProjectile projectile() {
-            return new ProjectileBuilder().setEndHeight(25).setDelay(50).setAngle(15).setDuration(28).setMultiplier(5).createProjectile();
+            return new ProjectileBuilder().setGraphicsId(344).createProjectile();
         }
 
         @Override
