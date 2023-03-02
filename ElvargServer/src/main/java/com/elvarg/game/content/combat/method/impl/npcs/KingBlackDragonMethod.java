@@ -108,9 +108,12 @@ public class KingBlackDragonMethod extends CombatMethod {
             }
         }
     }
-    
+
     private enum Breath {
-        ICE(new Projectile(396, 31, 43, 40, 55)), POISON(new Projectile(394, 31, 43, 40, 55)), SHOCK(new Projectile(395, 31, 43, 40, 55)), DRAGON(new Projectile(393, 31, 43, 40, 55));
+        ICE(new Projectile(396, 31, 43, 40, 55)),
+        POISON(new Projectile(394, 31, 43, 40, 55)),
+        SHOCK(new Projectile(395, 31, 43, 40, 55)),
+        DRAGON(new Projectile(393, 31, 43, 40, 55));
     	
     	private Projectile projectile;
 
