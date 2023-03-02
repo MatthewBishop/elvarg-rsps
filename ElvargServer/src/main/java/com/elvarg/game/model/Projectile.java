@@ -78,6 +78,7 @@ public class Projectile {
 	 */
 	private static void sendProjectile(Location start, Location end, Mobile lockon, Projectile p,
 			PrivateArea privateArea) {
+		int speed = p.getSpeed(start, end);
 		for (Player player : World.getPlayers()) {
 			if (player == null) {
 				continue;
@@ -88,7 +89,7 @@ public class Projectile {
 			if (!start.isViewableFrom(player.getLocation())) {
 				continue;
 			}
-			player.getPacketSender().sendProjectile(start, end, 0, p.getSpeed(start, end), p.projectileId, p.startHeight, p.endHeight, lockon, p.delay, p.angle, p.distanceOffset);
+			player.getPacketSender().sendProjectile(start, end, 0, speed, p.projectileId, p.startHeight, p.endHeight, lockon, p.delay, p.angle, p.distanceOffset);
 		}
 	}
 	
