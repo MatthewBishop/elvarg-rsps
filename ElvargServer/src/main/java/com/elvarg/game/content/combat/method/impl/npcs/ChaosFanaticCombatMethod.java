@@ -7,15 +7,14 @@ import com.elvarg.game.content.combat.CombatType;
 import com.elvarg.game.content.combat.hit.HitDamage;
 import com.elvarg.game.content.combat.hit.HitMask;
 import com.elvarg.game.content.combat.hit.PendingHit;
-import com.elvarg.game.content.combat.magic.NewProjectile;
 import com.elvarg.game.content.combat.method.CombatMethod;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
+import com.elvarg.game.model.ComplexProjectile;
 import com.elvarg.game.model.Graphic;
 import com.elvarg.game.model.GraphicHeight;
 import com.elvarg.game.model.Location;
-import com.elvarg.game.model.OldProjectile;
 import com.elvarg.game.model.Projectile;
 import com.elvarg.game.task.Task;
 import com.elvarg.game.task.TaskManager;
@@ -36,8 +35,8 @@ public class ChaosFanaticCombatMethod extends CombatMethod {
     private static final Graphic ATTACK_END_GFX = new Graphic(305, GraphicHeight.HIGH);
     private static final Graphic EXPLOSION_END_GFX = new Graphic(157, GraphicHeight.MIDDLE);
     private static final Animation MAGIC_ATTACK_ANIM = new Animation(811);
-    private static final OldProjectile EXPLOSION_PROJECTILE = new OldProjectile(551, 40, 80, 31, 43);
-	private static final OldProjectile MAGIC_PROJECTILE = new OldProjectile(554, 62, 80, 31, 43);
+    private static final Projectile EXPLOSION_PROJECTILE = new Projectile(551, 31, 43, 40, 80);
+	private static final Projectile MAGIC_PROJECTILE = new Projectile(554, 31, 43, 62, 80);
     
     @Override
     public PendingHit[] hits(Mobile character, Mobile target) {
@@ -63,7 +62,7 @@ public class ChaosFanaticCombatMethod extends CombatMethod {
         character.forceChat(QUOTES[Misc.getRandom(QUOTES.length - 1)]);
 
         if (attack == Attack.DEFAULT_MAGIC_ATTACK) {
-            Projectile.createProjectile(character, target, MAGIC_PROJECTILE);
+            Projectile.sendProjectile(character, target, MAGIC_PROJECTILE);
             if (Misc.getRandom(1) == 0) {
                 TaskManager.submit(new Task(3, target, false) {
                     @Override
@@ -82,7 +81,7 @@ public class ChaosFanaticCombatMethod extends CombatMethod {
                         (targetPos.getY() - 1) + Misc.getRandom(3)));
             }
             for (Location pos : attackPositions) {
-                Projectile.createProjectile(character, pos, EXPLOSION_PROJECTILE);
+                Projectile.sendProjectile(character, pos, EXPLOSION_PROJECTILE);
             }
             TaskManager.submit(new Task(4) {
                 @Override

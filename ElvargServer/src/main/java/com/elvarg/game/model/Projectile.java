@@ -1,97 +1,76 @@
 package com.elvarg.game.model;
 
 import com.elvarg.game.World;
-import com.elvarg.game.content.combat.magic.NewProjectile;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.areas.impl.PrivateArea;
 
-public final class Projectile {
-
-    /*
-     * Used by Chaos Fanatic, Crazy Archaeologist, and Vetion
-     */
-    public static void createProjectile(Mobile source, Location end, OldProjectile p) {
-		new Projectile(source.getLocation(), end, null, p, source.getPrivateArea()).sendProjectile();
+public class Projectile {
+	
+	private final int projectileId;
+	private final int startHeight;
+	private final int endHeight;
+	private final int delay;
+	private final int speed;
+	
+	/**
+	 * 	Constructs a new Projectile with the specified parameters.
+	 * 
+	 * 	@param projectileId the ID of the projectile
+	 * 	@param startHeight the starting height of the projectile
+	 * 	@param endHeight the ending height of the projectile
+	 * 	@param delay the delay before the projectile is sent
+	 * 	@param speed the speed at which the projectile travels
+	 */
+	public Projectile(int projectileId, int startHeight, int endHeight, int delay, int speed) {
+		this.projectileId = projectileId;
+		this.startHeight = startHeight;
+		this.endHeight = endHeight;
+		this.delay = delay;
+		this.speed = speed;
+	}
+	
+	public int getDelay() {
+		return delay;
+	}
+	
+	public int getProjectileId() {
+		return projectileId;
+	}
+	
+	public static void sendProjectile(Mobile source, Mobile victim, ComplexProjectile p) {
+		//int speed = data.speed != Integer.MIN_VALUE ? data.speed : data.getProjectileDuration(this.start, this.end);
+		final Location start = source.getLocation();
+	    final Location end = victim.getLocation();
+	    final int speed = p.getSpeed(start, end);
+	    Projectile.sendProjectile(start, end, victim, p, source.getPrivateArea(), speed, p.getAngle(), p.getDistanceOffset());
 	}
 
-
-
-	public static void createProjectile(Location start, Location end, Mobile lockon, OldProjectile p, PrivateArea privateArea) {
-		new Projectile(start, end, lockon, p, privateArea).sendProjectile();
+	public static void sendProjectile(Mobile source, Mobile victim, Projectile p) {
+		Projectile.sendProjectile(source.getLocation(), victim.getLocation(), victim, p, source.getPrivateArea(), p.speed, 16, 64);
 	}
 
-
-
-	public static void createProjectile(Mobile source, Mobile victim, OldProjectile p) {
-		new Projectile(source.getLocation(), victim.getLocation(), victim, p, source.getPrivateArea()).sendProjectile();
+	public static void sendProjectile(Location start, Location end, Projectile p) {
+		Projectile.sendProjectile(start, end, null, p, null, p.speed, 16, 64);
 	}
 
-
-
-	public static void createProjectile(Mobile source, Mobile victim, NewProjectile p) {
-		new Projectile(source, victim, p).sendProjectile();
+	public static void sendProjectile(Mobile source, Location end, Projectile p) {
+		Projectile.sendProjectile(source.getLocation(), end, null, p, source.getPrivateArea(), p.speed, 16, 64);
 	}
-
-	private final Location start;
-    private final Location end;
-    private final int speed;
-    private final int projectileId;
-    private final int startHeight;
-    private final int endHeight;
-    private final Mobile lockon;
-    private final int delay;
-    private final PrivateArea privateArea;
-    private final int angle;
-    private final int distanceOffset;
-        
-    //internal method+catapult
-    private Projectile(Location start, Location end, Mobile lockon, OldProjectile parameterObject, PrivateArea privateArea) {
-        this.start = start;
-        this.lockon = lockon;
-        this.end = end;
-        this.projectileId = parameterObject.projectileId;
-        this.delay = parameterObject.delay;
-        this.speed = parameterObject.speed;
-        this.startHeight = parameterObject.startHeight;
-        this.endHeight = parameterObject.endHeight;
-        this.privateArea = privateArea;
-        this.angle = 16;
-        this.distanceOffset = 64;
-    }
-    
-    private Projectile(Mobile source, Mobile victim, NewProjectile p) {//spells
-        this.start = source.getLocation();
-        this.lockon = victim;
-        this.end = victim.getLocation();
-        this.projectileId = p.getGraphicsId();
-        this.delay = p.getDelay();
-        this.speed = p.getProjectileDuration(this.start, this.end);
-        this.startHeight = p.getStartHeight();
-        this.endHeight = p.getEndHeight();
-        this.privateArea = source.getPrivateArea();
-        this.angle = p.getAngle();
-        this.distanceOffset = p.getDistanceOffset();
-    }
-        
-
-
-    /**
-     * Sends one projectiles using the values set when the {@link Projectile} was
-     * constructed.
-     */
-    private void sendProjectile() {
-        for (Player player : World.getPlayers()) {
-            if (player == null) {
-                continue;
-            }
-            if (player.getPrivateArea() != privateArea) {
-                continue;
-            }
-            if (!start.isViewableFrom(player.getLocation())) {
-                continue;
-            }
-            player.getPacketSender().sendProjectile(start, end, 0, speed, projectileId, startHeight, endHeight, lockon, delay, angle, distanceOffset);
-        }
-    }
+	
+	private static void sendProjectile(Location start, Location end, Mobile lockon, Projectile p, PrivateArea privateArea, int speed, int angle, int distanceOffset) {
+		//int speed = data.speed != Integer.MIN_VALUE ? data.speed : data.getProjectileDuration(this.start, this.end);
+	    for (Player player : World.getPlayers()) {
+	        if (player == null) {
+	            continue;
+	        }
+	        if (player.getPrivateArea() != privateArea) {
+	            continue;
+	        }
+	        if (!start.isViewableFrom(player.getLocation())) {
+	            continue;
+	        }
+	        player.getPacketSender().sendProjectile(start, end, 0, speed, p.getProjectileId(), p.startHeight, p.endHeight, lockon, p.delay, angle, distanceOffset);
+	    }
+	}
 }

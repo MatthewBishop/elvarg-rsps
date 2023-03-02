@@ -9,7 +9,6 @@ import com.elvarg.game.content.combat.method.CombatMethod;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
-import com.elvarg.game.model.OldProjectile;
 import com.elvarg.game.model.Projectile;
 import com.elvarg.game.task.impl.CombatPoisonEffect.PoisonType;
 import com.elvarg.util.Misc;
@@ -23,7 +22,7 @@ public class KingBlackDragonMethod extends CombatMethod {
     public void start(Mobile character, Mobile target) {
         if (currentAttackType == CombatType.MAGIC) {
             character.performAnimation(new Animation(84));
-            Projectile.createProjectile(character, target, currentBreath.projectile);
+            Projectile.sendProjectile(character, target, currentBreath.projectile);
         } else if (currentAttackType == CombatType.MELEE) {
             character.performAnimation(new Animation(91));
         }
@@ -111,11 +110,11 @@ public class KingBlackDragonMethod extends CombatMethod {
     }
     
     private enum Breath {
-        ICE(new OldProjectile(396, 40, 55, 31, 43)), POISON(new OldProjectile(394, 40, 55, 31, 43)), SHOCK(new OldProjectile(395, 40, 55, 31, 43)), DRAGON(new OldProjectile(393, 40, 55, 31, 43));
+        ICE(new Projectile(396, 31, 43, 40, 55)), POISON(new Projectile(394, 31, 43, 40, 55)), SHOCK(new Projectile(395, 31, 43, 40, 55)), DRAGON(new Projectile(393, 31, 43, 40, 55));
     	
-    	private OldProjectile projectile;
+    	private Projectile projectile;
 
-		private Breath(OldProjectile projectile) {
+		private Breath(Projectile projectile) {
 			this.projectile = projectile;
 		}
     	

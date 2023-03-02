@@ -42,8 +42,8 @@ public class DarkBowCombatMethod extends RangedCombatMethod {
 		if (player.getCombat().getAmmunition() != Ammunition.DRAGON_ARROW) {
 			projectileId = 1101;
 		}
-		Projectile.createProjectile(player, target, new OldProjectile(projectileId, 40, 70, 43, 31));
-		Projectile.createProjectile(character, target, new OldProjectile(projectileId, 33, 74, 48, 31));
+		Projectile.sendProjectile(player, target, new Projectile(projectileId, 43, 31, 40, 70));
+		Projectile.sendProjectile(character, target, new Projectile(projectileId, 48, 31, 33, 74));
 		CombatFactory.decrementAmmo(player, target.getLocation(), 2);
 	}
 

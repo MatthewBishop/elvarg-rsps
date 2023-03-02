@@ -18,7 +18,7 @@ public class VenenatisCombatMethod extends CombatMethod {
 	private static final Animation MELEE_ATTACK_ANIMATION = new Animation(5319);
 	private static final Animation MAGIC_ATTACK_ANIMATION = new Animation(5322);
 	private static final Graphic DRAIN_PRAYER_GRAPHIC = new Graphic(172, GraphicHeight.MIDDLE);
-	private static final OldProjectile MAGIC_PROJECTILE = new OldProjectile(165, 40, 55, 31, 43);
+	private static final Projectile MAGIC_PROJECTILE = new Projectile(165, 31, 43, 40, 55);
 
 	private CombatType currentAttackType = CombatType.MELEE;
 
@@ -36,7 +36,7 @@ public class VenenatisCombatMethod extends CombatMethod {
 	public void start(Mobile character, Mobile target) {
 		if (currentAttackType == CombatType.MAGIC) {
 		    character.performAnimation(MAGIC_ATTACK_ANIMATION);
-			Projectile.createProjectile(character, target, MAGIC_PROJECTILE);
+			Projectile.sendProjectile(character, target, MAGIC_PROJECTILE);
 		} else if (currentAttackType == CombatType.MELEE) {
 		    character.performAnimation(MELEE_ATTACK_ANIMATION);
 		}

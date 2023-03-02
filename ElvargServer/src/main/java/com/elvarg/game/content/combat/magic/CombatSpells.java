@@ -9,12 +9,14 @@ import com.elvarg.game.content.combat.CombatFactory;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
+import com.elvarg.game.model.ComplexProjectile;
 import com.elvarg.game.model.EffectTimer;
 import com.elvarg.game.model.Graphic;
 import com.elvarg.game.model.GraphicHeight;
 import com.elvarg.game.model.Item;
 import com.elvarg.game.model.MagicSpellbook;
 import com.elvarg.game.model.Skill;
+import com.elvarg.game.model.ComplexProjectile.ProjectileBuilder;
 import com.elvarg.game.task.impl.CombatPoisonEffect.PoisonType;
 
 public enum CombatSpells {
@@ -25,7 +27,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(91).createProjectile();
         }
 
@@ -76,7 +78,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(103).setStartHeight(36).setDelay(61).setDuration(-15).createProjectile();
         }
 
@@ -150,7 +152,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(94).createProjectile();
         }
 
@@ -201,7 +203,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(97).createProjectile();
         }
 
@@ -252,7 +254,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(106).setStartHeight(36).setDelay(44).setDuration(2).createProjectile();
         }
 
@@ -331,7 +333,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(100).createProjectile();
         }
 
@@ -382,7 +384,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(118).createProjectile();
         }
 
@@ -433,7 +435,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(109).createProjectile();
         }
 
@@ -508,7 +510,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(178).setStartHeight(45).setEndHeight(0).setDelay(75).setDuration(-29).createProjectile();
         }
 
@@ -554,7 +556,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(121).createProjectile();
         }
 
@@ -605,7 +607,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(124).createProjectile();
         }
 
@@ -656,7 +658,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(127).createProjectile();
         }
 
@@ -707,8 +709,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
-            return new ProjectileBuilder().setGraphicsId(146).setStartHeight(31).setDelay(46).setDuration(0).setMultiplier(5).createProjectile();
+        public ComplexProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(146).setStartHeight(31).setDelay(46).setDuration(0).setSpan(5).createProjectile();
         }
 
         @Override
@@ -758,7 +760,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(133).createProjectile();
         }
 
@@ -809,7 +811,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(136).createProjectile();
         }
 
@@ -860,7 +862,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(88).setStartHeight(36).setDelay(60).setDuration(-14).createProjectile();
         }
 
@@ -911,7 +913,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(178).setStartHeight(45).setEndHeight(0).setDelay(75).setDuration(-29).createProjectile();
         }
 
@@ -962,8 +964,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
-            return new ProjectileBuilder().setGraphicsId(328).setDuration(20).setMultiplier(5).createProjectile();
+        public ComplexProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(328).setDuration(20).setSpan(5).createProjectile();
         }
 
         @Override
@@ -1013,7 +1015,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(139).createProjectile();
         }
 
@@ -1064,7 +1066,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(130).createProjectile();
         }
 
@@ -1115,8 +1117,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
-            return new ProjectileBuilder().setDuration(20).setMultiplier(5).createProjectile();
+        public ComplexProjectile projectile() {
+            return new ProjectileBuilder().setDuration(20).setSpan(5).createProjectile();
         }
 
         @Override
@@ -1166,8 +1168,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
-            return new ProjectileBuilder().setDuration(20).setMultiplier(5).createProjectile();
+        public ComplexProjectile projectile() {
+            return new ProjectileBuilder().setDuration(20).setSpan(5).createProjectile();
         }
 
         @Override
@@ -1217,8 +1219,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
-            return new ProjectileBuilder().setDuration(20).setMultiplier(5).createProjectile();
+        public ComplexProjectile projectile() {
+            return new ProjectileBuilder().setDuration(20).setSpan(5).createProjectile();
         }
 
         @Override
@@ -1268,7 +1270,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(159).createProjectile();
         }
 
@@ -1319,7 +1321,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(162).createProjectile();
         }
 
@@ -1370,7 +1372,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(168).setStartHeight(36).setDelay(34).setDuration(12).createProjectile();
         }
 
@@ -1444,7 +1446,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(165).createProjectile();
         }
 
@@ -1495,7 +1497,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(171).setStartHeight(36).setDelay(48).setDuration(-2).createProjectile();
         }
 
@@ -1570,7 +1572,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(156).createProjectile();
         }
 
@@ -1621,7 +1623,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(178).setStartHeight(45).setEndHeight(0).setDelay(75).setDuration(-29).createProjectile();
         }
 
@@ -1672,7 +1674,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(174).setStartHeight(36).setDelay(52).setDuration(-6).createProjectile();
         }
 
@@ -1746,7 +1748,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(344).createProjectile();
         }
 
@@ -1825,7 +1827,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(384).createProjectile();
         }
 
@@ -1891,7 +1893,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(378).setEndHeight(0).createProjectile();
         }
 
@@ -1947,7 +1949,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(372).createProjectile();
         }
 
@@ -2003,7 +2005,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(360).setEndHeight(0).createProjectile();
         }
 
@@ -2059,7 +2061,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().createProjectile();
         }
 
@@ -2125,8 +2127,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
-            return new ProjectileBuilder().setDuration(25).setMultiplier(5).createProjectile();
+        public ComplexProjectile projectile() {
+            return new ProjectileBuilder().setDuration(25).setSpan(5).createProjectile();
         }
 
         @Override
@@ -2181,8 +2183,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
-            return new ProjectileBuilder().setDuration(25).setMultiplier(5).createProjectile();
+        public ComplexProjectile projectile() {
+            return new ProjectileBuilder().setDuration(25).setSpan(5).createProjectile();
         }
 
         @Override
@@ -2237,7 +2239,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().createProjectile();
         }
 
@@ -2293,7 +2295,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(386).createProjectile();
         }
 
@@ -2359,7 +2361,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(380).setEndHeight(0).createProjectile();
         }
 
@@ -2415,7 +2417,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().setGraphicsId(374).setEndHeight(0).createProjectile();
         }
 
@@ -2471,7 +2473,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().createProjectile();
         }
 
@@ -2527,7 +2529,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().createProjectile();
         }
 
@@ -2593,8 +2595,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
-            return new ProjectileBuilder().setDelay(21).setDuration(25).setMultiplier(5).createProjectile();
+        public ComplexProjectile projectile() {
+            return new ProjectileBuilder().setDelay(21).setDuration(25).setSpan(5).createProjectile();
         }
 
         @Override
@@ -2649,8 +2651,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
-            return new ProjectileBuilder().setDelay(21).setDuration(25).setMultiplier(5).createProjectile();
+        public ComplexProjectile projectile() {
+            return new ProjectileBuilder().setDelay(21).setDuration(25).setSpan(5).createProjectile();
         }
 
         @Override
@@ -2705,7 +2707,7 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
+        public ComplexProjectile projectile() {
             return new ProjectileBuilder().createProjectile();
         }
 
@@ -2756,8 +2758,8 @@ public enum CombatSpells {
          }
 
          @Override
-         public NewProjectile projectile() {
-             return new ProjectileBuilder().setGraphicsId(1252).setStartHeight(23).setEndHeight(15).setDuration(10).setMultiplier(5).createProjectile();
+         public ComplexProjectile projectile() {
+             return new ProjectileBuilder().setGraphicsId(1252).setStartHeight(23).setEndHeight(15).setDuration(10).setSpan(5).createProjectile();
          }
 
          @Override
@@ -2807,8 +2809,8 @@ public enum CombatSpells {
         }
 
         @Override
-        public NewProjectile projectile() {
-            return new ProjectileBuilder().setGraphicsId(1040).setStartHeight(23).setEndHeight(15).setDuration(25).setMultiplier(5).createProjectile();
+        public ComplexProjectile projectile() {
+            return new ProjectileBuilder().setGraphicsId(1040).setStartHeight(23).setEndHeight(15).setDuration(25).setSpan(5).createProjectile();
         }
 
         @Override
