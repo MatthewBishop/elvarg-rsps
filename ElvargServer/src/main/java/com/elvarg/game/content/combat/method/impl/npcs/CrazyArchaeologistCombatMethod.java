@@ -86,7 +86,7 @@ public class CrazyArchaeologistCombatMethod extends CombatMethod {
 						(targetPos.getY() - 1) + Misc.getRandom(3)));
 			}
 			for (Location pos : attackPositions) {
-				new Projectile(character.getLocation(), pos, null, 1260, 40, 80, 31, 43, character.getPrivateArea()).sendProjectile();
+				new Projectile(character, pos, 1260).sendProjectile();
 			}
 			TaskManager.submit(new Task(4) {
 				@Override

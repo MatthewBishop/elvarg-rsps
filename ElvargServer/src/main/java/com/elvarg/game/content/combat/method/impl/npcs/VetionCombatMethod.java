@@ -58,7 +58,7 @@ public class VetionCombatMethod extends CombatMethod {
 						(targetPos.getY() - 1) + Misc.getRandom(3)));
 			}
 			for (Location pos : attackPositions) {
-				new Projectile(character.getLocation(), pos, null, 280, 40, 80, 31, 43, character.getPrivateArea()).sendProjectile();
+				new Projectile(character, pos, 280).sendProjectile();
 			}
 			TaskManager.submit(new Task(4) {
 				@Override

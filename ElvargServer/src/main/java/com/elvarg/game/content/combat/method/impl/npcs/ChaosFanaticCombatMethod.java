@@ -78,7 +78,7 @@ public class ChaosFanaticCombatMethod extends CombatMethod {
                         (targetPos.getY() - 1) + Misc.getRandom(3)));
             }
             for (Location pos : attackPositions) {
-                new Projectile(character.getLocation(), pos, null, 551, 40, 80, 31, 43, character.getPrivateArea())
+                new Projectile(character, pos, 551)
                         .sendProjectile();
             }
             TaskManager.submit(new Task(4) {
