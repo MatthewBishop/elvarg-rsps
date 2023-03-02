@@ -5,7 +5,6 @@ import com.elvarg.game.content.combat.hit.PendingHit;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.npc.NPC;
 import com.elvarg.game.model.Animation;
-import com.elvarg.game.model.ComplexProjectile;
 import com.elvarg.game.model.Graphic;
 import com.elvarg.game.model.Projectile;
 import com.elvarg.game.task.Task;
@@ -91,7 +90,7 @@ public abstract class CombatSpell extends Spell {
      *
      * @return the projectile played when this spell is cast.
      */
-    public abstract ComplexProjectile projectile();
+    public abstract Projectile projectile();
 
     /**
      * The ending graphic played when the spell hits the victim.
