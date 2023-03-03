@@ -4,8 +4,10 @@ import com.elvarg.game.content.combat.CombatFactory;
 import com.elvarg.game.content.combat.CombatSpecial;
 import com.elvarg.game.content.combat.hit.PendingHit;
 import com.elvarg.game.content.combat.method.impl.RangedCombatMethod;
+import com.elvarg.game.content.combat.ranged.RangedData;
 import com.elvarg.game.content.combat.ranged.RangedData.Ammunition;
 import com.elvarg.game.content.combat.ranged.RangedData.RangedWeapon;
+import com.elvarg.game.content.combat.ranged.RangedData.RangedWeaponType;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.*;
@@ -16,10 +18,13 @@ public class DarkBowCombatMethod extends RangedCombatMethod {
 	private static final Graphic GRAPHIC = new Graphic(1100, GraphicHeight.HIGH, Priority.HIGH);
 
 	@Override
-    public PendingHit[] hits(Mobile character, Mobile target) {
-        return new PendingHit[] { new PendingHit(character, target, this, false, 3),
-                new PendingHit(character, target, this, false, 2) };
-    }
+	public PendingHit[] hits(Mobile character, Mobile target) {
+		int distance = character.getLocation().getChebyshevDistance(target.getLocation());
+		int delay = RangedData.hitDelay(distance, RangedWeaponType.LONGBOW);
+
+		return new PendingHit[] { new PendingHit(character, target, this, false, delay),
+				new PendingHit(character, target, this, false, RangedData.dbowArrowDelay(distance)) };
+	}
 
 	@Override
 	public boolean canAttack(Mobile character, Mobile target) {

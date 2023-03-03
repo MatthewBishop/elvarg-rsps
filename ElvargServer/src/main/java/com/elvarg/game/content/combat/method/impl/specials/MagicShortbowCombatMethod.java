@@ -4,7 +4,9 @@ import com.elvarg.game.content.combat.CombatFactory;
 import com.elvarg.game.content.combat.CombatSpecial;
 import com.elvarg.game.content.combat.hit.PendingHit;
 import com.elvarg.game.content.combat.method.impl.RangedCombatMethod;
+import com.elvarg.game.content.combat.ranged.RangedData;
 import com.elvarg.game.content.combat.ranged.RangedData.RangedWeapon;
+import com.elvarg.game.content.combat.ranged.RangedData.RangedWeaponType;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
@@ -22,7 +24,9 @@ public class MagicShortbowCombatMethod extends RangedCombatMethod {
 
     @Override
     public PendingHit[] hits(Mobile character, Mobile target) {
-        return new PendingHit[]{new PendingHit(character, target, this, true, 3), new PendingHit(character, target, this, true, 2)};
+        int distance = character.getLocation().getChebyshevDistance(target.getLocation());
+        int delay = RangedData.hitDelay(distance, RangedWeaponType.SHORTBOW);
+        return new PendingHit[]{new PendingHit(character, target, this, true, delay), new PendingHit(character, target, this, true, delay)};
     }
 
     @Override
