@@ -114,13 +114,11 @@ public class KingBlackDragonMethod extends CombatMethod {
         POISON(new Projectile(394, 31, 43, 40, 55)),
         SHOCK(new Projectile(395, 31, 43, 40, 55)),
         DRAGON(new Projectile(393, 31, 43, 40, 55));
-    	
-    	private Projectile projectile;
 
-		private Breath(Projectile projectile) {
-			this.projectile = projectile;
-		}
-    	
-    	
+        private Projectile projectile;
+
+        private Breath(Projectile projectile) {
+            this.projectile = projectile;
+        }
     }
 }

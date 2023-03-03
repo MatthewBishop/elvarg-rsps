@@ -14,7 +14,7 @@ import com.elvarg.game.model.Priority;
 public class ArmadylCrossbowCombatMethod extends RangedCombatMethod {
 
     private static final Animation ANIMATION = new Animation(4230, Priority.HIGH);
-	private static final Projectile PROJECTILE = new Projectile(301, 44, 35, 50, 70);
+    private static final Projectile PROJECTILE = new Projectile(301, 44, 35, 50, 70);
 
     @Override
     public PendingHit[] hits(Mobile character, Mobile target) {

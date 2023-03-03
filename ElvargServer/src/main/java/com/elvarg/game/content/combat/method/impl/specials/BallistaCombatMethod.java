@@ -14,7 +14,7 @@ import com.elvarg.game.model.Priority;
 public class BallistaCombatMethod extends RangedCombatMethod {
 
     private static final Animation ANIMATION = new Animation(7222, Priority.HIGH);
-	private static final Projectile PROJECTILE = new Projectile(1301, 43, 31, 70, 30);
+    private static final Projectile PROJECTILE = new Projectile(1301, 43, 31, 70, 30);
 
     @Override
     public PendingHit[] hits(Mobile character, Mobile target) {

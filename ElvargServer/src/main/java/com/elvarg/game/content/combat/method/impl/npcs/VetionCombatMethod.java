@@ -23,7 +23,7 @@ public class VetionCombatMethod extends CombatMethod {
 
 	private CombatType attack = CombatType.MELEE;
 	private static final Graphic MAGIC_END_GFX = new Graphic(281);
-    private static final Projectile MAGIC_PROJECTILE = new Projectile(280, 31, 43, 40, 80);
+	private static final Projectile MAGIC_PROJECTILE = new Projectile(280, 31, 43, 40, 80);
 
 	@Override
 	public boolean canAttack(Mobile character, Mobile target) {

@@ -19,8 +19,8 @@ public class MagicShortbowCombatMethod extends RangedCombatMethod {
 
     private static final Animation ANIMATION = new Animation(1074, Priority.HIGH);
     private static final Graphic GRAPHIC = new Graphic(250, GraphicHeight.HIGH, Priority.HIGH);
-	private static final Projectile PROJECTILE1 = new Projectile(249, 43, 31, 40, 57);
-	private static final Projectile PROJECTILE2 = new Projectile(249, 48, 31, 33, 57);
+    private static final Projectile PROJECTILE1 = new Projectile(249, 43, 31, 40, 57);
+    private static final Projectile PROJECTILE2 = new Projectile(249, 48, 31, 33, 57);
 
     @Override
     public PendingHit[] hits(Mobile character, Mobile target) {
