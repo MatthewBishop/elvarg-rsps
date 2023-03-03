@@ -45,7 +45,8 @@ public class DamageFormulas {
 
         if (CombatEquipment.wearingVoid(player, CombatType.MELEE))
             str =  (str * 1.1f);
-
+        if (CombatEquipment.wearingEliteVoid(player, CombatType.MELEE))
+            str =  (str * 1.1f);
         if (CombatEquipment.wearingObsidian(player))
             str = (str * 1.2f); // obisidian bonuses stack
 
@@ -133,6 +134,8 @@ public class DamageFormulas {
                     maxHit *= 1.15;
                     break;
             }
+            if(CombatEquipment.wearingEliteVoid(c.getAsPlayer(), CombatType.MAGIC))
+                maxHit *= 1.025;
         }
 
         return (int) Math.floor(maxHit);
@@ -160,6 +163,9 @@ public class DamageFormulas {
         rngStrength += 8;
 
         if (CombatEquipment.wearingVoid(player, CombatType.RANGED)) {
+            rngStrength = (rngStrength * 1.1f);
+        }
+        if (CombatEquipment.wearingEliteVoid(player, CombatType.RANGED)) {
             rngStrength = (rngStrength * 1.125f);
         }
 

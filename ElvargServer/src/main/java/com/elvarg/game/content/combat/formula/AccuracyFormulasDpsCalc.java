@@ -90,7 +90,9 @@ public class AccuracyFormulasDpsCalc {
 
         if (CombatEquipment.wearingVoid(player, CombatType.MELEE))
             att = (att * 1.1f);
-
+        if (CombatEquipment.wearingEliteVoid(player, CombatType.MELEE))
+            att = (att * 1.1f);
+        
         // Special attack
         if (player.isSpecialActivated()) {
             att *= player.getCombatSpecial().getAccuracyMultiplier();
@@ -170,9 +172,6 @@ public class AccuracyFormulasDpsCalc {
         else if (fightStyle == FightStyle.CONTROLLED)
             def += 1;
         def += 8;
-
-        if (CombatEquipment.wearingVoid(player, CombatType.MELEE))
-            def = (int) (def * 1.1f);
 
         return def;
     }
@@ -255,6 +254,9 @@ public class AccuracyFormulasDpsCalc {
             rngStrength += 3;
 
         if (CombatEquipment.wearingVoid(player, CombatType.RANGED)) {
+            rngStrength = (rngStrength * 1.1f);
+        }
+        if (CombatEquipment.wearingEliteVoid(player, CombatType.RANGED)) {
             rngStrength = (rngStrength * 1.125f);
         }
 
@@ -303,15 +305,11 @@ public class AccuracyFormulasDpsCalc {
 
         mag *= prayerBonus;
 
-        FightStyle fightStyle = player.getFightType().getStyle();
-        if (fightStyle == FightStyle.ACCURATE)
-            mag += 3;
-        else if (fightStyle == FightStyle.DEFENSIVE)
-            mag += 1;
-
         if (CombatEquipment.wearingVoid(player, CombatType.MAGIC))
             mag = (int) (mag * 1.45f);
-
+        if (CombatEquipment.wearingEliteVoid(player, CombatType.MAGIC))
+            mag = (int) (mag * 1.45f);
+        
         return mag;
     }
 
